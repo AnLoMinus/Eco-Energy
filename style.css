@@ -1,0 +1,214 @@
+:root {
+  --primary-color: #2ecc71;
+  --secondary-color: #27ae60;
+  --dark-color: #2c3e50;
+  --light-color: #ecf0f1;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(rgba(46, 204, 113, 0.9), rgba(39, 174, 96, 0.9)),
+    url("https://source.unsplash.com/1600x900/?renewable-energy") center/cover;
+  color: white;
+  padding: 100px 0;
+}
+
+/* Cards */
+.card {
+  transition: transform 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Navigation */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+/* Stages Content */
+.stage-section {
+  padding: 40px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.stage-section:last-child {
+  border-bottom: none;
+}
+
+/* Custom Bootstrap Overrides */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 0;
+  }
+
+  .display-4 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Content Styling */
+.rtl-content {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl-content h1,
+.rtl-content h2,
+.rtl-content h3,
+.rtl-content h4,
+.rtl-content h5,
+.rtl-content h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+}
+
+.rtl-content ul,
+.rtl-content ol {
+  padding-right: 1.5rem;
+  padding-left: 0;
+}
+
+.rtl-content code {
+  direction: ltr;
+  text-align: left;
+  display: inline-block;
+  background: #f8f9fa;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+.rtl-content pre {
+  direction: ltr;
+  text-align: left;
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  padding: 2rem;
+}
+
+/* Table Styling */
+.rtl-content table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+}
+
+.rtl-content th,
+.rtl-content td {
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+}
+
+.rtl-content th {
+  background-color: #f8f9fa;
+}
+
+/* Blockquote Styling */
+.rtl-content blockquote {
+  border-right: 4px solid var(--primary-color);
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+}
+
+/* Link Styling */
+.rtl-content a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.rtl-content a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* Print Styles */
+@media print {
+  .navbar,
+  .hero-section,
+  footer {
+    display: none;
+  }
+
+  .rtl-content {
+    font-size: 12pt;
+  }
+}
+
+/* Add new styles */
+.energy-types {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+
+.energy-type-icon {
+  color: white;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.energy-type-icon:hover {
+  transform: translateY(-5px);
+}
+
+.energy-type-icon i {
+  margin-bottom: 0.5rem;
+}
+
+.energy-type-icon p {
+  margin: 0;
+  font-size: 0.9rem;
+}

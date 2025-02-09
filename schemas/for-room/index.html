@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מדריך למערכת סולארית ביתית</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">🌞 מערכת סולארית ביתית</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">סקירת המערכת</h2>
+
+                        <!-- System Overview Tabs -->
+                        <ul class="nav nav-tabs mb-3" id="systemTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="diagram-tab" data-bs-toggle="tab"
+                                    data-bs-target="#diagram" type="button">
+                                    <i class="fas fa-project-diagram"></i> תרשים מערכת
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="specs-tab" data-bs-toggle="tab" data-bs-target="#specs"
+                                    type="button">
+                                    <i class="fas fa-info-circle"></i> מפרט טכני
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="efficiency-tab" data-bs-toggle="tab"
+                                    data-bs-target="#efficiency" type="button">
+                                    <i class="fas fa-chart-line"></i> נצילות
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="costs-tab" data-bs-toggle="tab" data-bs-target="#costs"
+                                    type="button">
+                                    <i class="fas fa-money-bill-wave"></i> עלות
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="systemTabContent">
+                            <!-- Diagram Tab -->
+                            <div class="tab-pane fade show active" id="diagram">
+                                <div id="system-overview" class="diagram-container">
+                                    <!-- Diagram will be rendered here by JS -->
+                                </div>
+                                <div class="system-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-color solar"></span>
+                                        <span>ייצור סולארי</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color wind"></span>
+                                        <span>ייצור מרוח</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color battery"></span>
+                                        <span>אחסון אנרגיה</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Specs Tab -->
+                            <div class="tab-pane fade" id="specs">
+                                <div class="specs-grid">
+                                    <div class="spec-card">
+                                        <div class="spec-icon">⚡</div>
+                                        <h4>הספק כולל</h4>
+                                        <div class="spec-value">300W</div>
+                                        <div class="spec-details">
+                                            <span>סולארי: 200W</span>
+                                            <span>רוח: 100W</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-card">
+                                        <div class="spec-icon">🔋</div>
+                                        <h4>קיבולת אחסון</h4>
+                                        <div class="spec-value">1,200Wh</div>
+                                        <div class="spec-details">
+                                            <span>סוללת ליתיום 100Ah</span>
+                                            <span>מתח: 12V</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-card">
+                                        <div class="spec-icon">🔌</div>
+                                        <h4>יציאות זמינות</h4>
+                                        <div class="spec-details">
+                                            <span>220V AC - עד 300W</span>
+                                            <span>USB - טעינה מהירה</span>
+                                            <span>12V DC - ישיר</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Efficiency Tab -->
+                            <div class="tab-pane fade" id="efficiency">
+                                <div class="efficiency-stats">
+                                    <canvas id="efficiencyChart"></canvas>
+                                    <div class="efficiency-info">
+                                        <div class="info-item">
+                                            <h5>יעילות ממוצעת</h5>
+                                            <div class="info-value" id="avgEfficiency">85%</div>
+                                        </div>
+                                        <div class="info-item">
+                                            <h5>שעות ייצור יומיות</h5>
+                                            <div class="info-value">5-8 שעות</div>
+                                        </div>
+                                        <div class="info-item">
+                                            <h5>זמן גיבוי טיפוסי</h5>
+                                            <div class="info-value">12-16 שעות</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Costs Tab -->
+                            <div class="tab-pane fade" id="costs">
+                                <div class="costs-analysis">
+                                    <div class="cost-cards">
+                                        <div class="cost-card">
+                                            <div class="cost-header">
+                                                <i class="fas fa-money-bill-wave"></i>
+                                                <h4>עלות התקנה</h4>
+                                            </div>
+                                            <div class="cost-amount">₪6,500</div>
+                                            <ul class="cost-breakdown">
+                                                <li>פאנלים סולאריים: ₪2,000</li>
+                                                <li>טורבינת רוח: ₪1,500</li>
+                                                <li>סוללה ובקרים: ₪2,500</li>
+                                                <li>התקנה וציוד: ₪500</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="cost-card">
+                                            <div class="cost-header">
+                                                <i class="fas fa-piggy-bank"></i>
+                                                <h4>חיסכון שנתי</h4>
+                                            </div>
+                                            <div class="cost-amount">₪1,800</div>
+                                            <div class="savings-details">
+                                                <div class="savings-meter">
+                                                    <div class="meter-fill" style="width: 65%"></div>
+                                                </div>
+                                                <p>החזר השקעה תוך ~3.5 שנים</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="roi-chart">
+                                        <canvas id="roiChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3>רכיבי המערכת</h3>
+                        <div class="components-grid">
+                            <div class="component-item">
+                                <div class="component-icon">🌞</div>
+                                <h4>פאנל סולארי</h4>
+                                <p>200W (2x100W)</p>
+                            </div>
+                            <div class="component-item">
+                                <div class="component-icon">🌪️</div>
+                                <h4>טורבינת רוח</h4>
+                                <p>100W</p>
+                            </div>
+                            <div class="component-item">
+                                <div class="component-icon">🔋</div>
+                                <h4>סוללת ליתיום</h4>
+                                <p>100Ah/12V</p>
+                            </div>
+                            <div class="component-item">
+                                <div class="component-icon">🔌</div>
+                                <h4>ממיר מתח</h4>
+                                <p>300W</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3>צריכת חשמל יומית</h3>
+                        <div id="power-consumption-chart">
+                            <!-- Chart will be rendered here by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3>סטטוס מערכת</h3>
+                        <div class="system-status">
+                            <div class="status-item">
+                                <span class="status-label">טעינת סוללה:</span>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 75%">75%</div>
+                                </div>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">ייצור נוכחי:</span>
+                                <span class="status-value">180W</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">צריכה נוכחית:</span>
+                                <span class="status-value">120W</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add system indicators after the system status -->
+                <div class="system-indicators">
+                    <div class="indicator">
+                        <div class="indicator-icon solar-indicator">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="indicator-details">
+                            <span class="indicator-label">מצב פאנל סולארי</span>
+                            <div class="indicator-value">
+                                <span class="status-dot active"></span>
+                                פעיל
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="indicator">
+                        <div class="indicator-icon wind-indicator">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <div class="indicator-details">
+                            <span class="indicator-label">מצב טורבינת רוח</span>
+                            <div class="indicator-value">
+                                <span class="status-dot"></span>
+                                ממתין לרוח
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="indicator">
+                        <div class="indicator-icon temp-indicator">
+                            <i class="fas fa-thermometer-half"></i>
+                        </div>
+                        <div class="indicator-details">
+                            <span class="indicator-label">טמפרטורת מערכת</span>
+                            <div class="indicator-value">
+                                <span id="systemTemp">32°C</span>
+                                <div class="temp-trend">
+                                    <i class="fas fa-arrow-up"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <!-- Add after existing cards -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>מחשבון צריכת חשמל</h3>
+                    <div class="calculator-container">
+                        <div class="device-list" id="deviceList">
+                            <!-- Device entries will be added here -->
+                        </div>
+                        <button class="btn btn-primary mb-3" id="addDeviceBtn">
+                            <i class="fas fa-plus"></i> הוסף מכשיר
+                        </button>
+                        <div class="calculation-results">
+                            <h4>סיכום צריכת חשמל:</h4>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <span class="result-label">צריכה יומית:</span>
+                                    <span class="result-value" id="dailyConsumption">0 Wh</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">צריכה חודשית:</span>
+                                    <span class="result-value" id="monthlyConsumption">0 kWh</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add after the system overview card -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3>חישובי צריכת חשמל מפורטים</h3>
+            <div class="power-calculations">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>מכשיר</th>
+                            <th>הספק (W)</th>
+                            <th>שעות עבודה</th>
+                            <th>צריכה יומית (Wh)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>טלפון נייד</td>
+                            <td>5</td>
+                            <td>4</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>טלוויזיה</td>
+                            <td>50</td>
+                            <td>3</td>
+                            <td>150</td>
+                        </tr>
+                        <tr>
+                            <td>מחשב נייד</td>
+                            <td>60</td>
+                            <td>4</td>
+                            <td>240</td>
+                        </tr>
+                        <tr>
+                            <td>תאורת LED</td>
+                            <td>10</td>
+                            <td>6</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td>רמקולים</td>
+                            <td>20</td>
+                            <td>2</td>
+                            <td>40</td>
+                        </tr>
+                        <tr class="table-primary">
+                            <td colspan="3"><strong>סה"כ צריכה יומית:</strong></td>
+                            <td><strong>510 Wh</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add after the power calculations table -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3>גרף צריכת חשמל יומית</h3>
+            <canvas id="dailyConsumptionChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Add after the required components card -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3>🌍 מערכת היברידית מתקדמת</h3>
+            <div class="advanced-system">
+                <div class="system-intro">
+                    <h4>מערכת סולארית + טורבינת רוח עם סוללת ליתיום מותאמת אישית</h4>
+                    <p class="intro-text">מערכת משולבת המנצלת אנרגיית שמש ורוח לייצור חשמל מקסימלי</p>
+                </div>
+
+                <div class="advanced-components">
+                    <div class="advanced-category">
+                        <h5>⚡ מטרות המערכת</h5>
+                        <ul class="advanced-list">
+                            <li>אספקת חשמל רציפה למכשירים בסיסיים</li>
+                            <li>מערכת היברידית: פאנלים סולאריים + טורבינת רוח</li>
+                            <li>סוללה מותאמת אישית מתאי ליתיום 18650</li>
+                            <li>עיצוב קליל ומותאם לחלון/מרפסת</li>
+                        </ul>
+                    </div>
+
+                    <div class="advanced-category">
+                        <h5>🔋 סוללת ליתיום מותאמת אישית</h5>
+                        <div class="battery-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">תצורת סוללה:</span>
+                                <span class="spec-value">3S40P</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">מתח:</span>
+                                <span class="spec-value">12.6V</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">קיבולת:</span>
+                                <span class="spec-value">100Ah</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="advanced-category">
+                        <h5>🛠️ רכיבי הסוללה</h5>
+                        <ul class="advanced-list">
+                            <li>תאי ליתיום 18650 (~130 יחידות)</li>
+                            <li>לוח BMS לניהול הסוללה (12V 100A)</li>
+                            <li>רצועות ניקל לריתוך</li>
+                            <li>מכשיר ריתוך נקודתי</li>
+                        </ul>
+                    </div>
+
+                    <div class="advanced-category">
+                        <h5>📊 חישובי הספק</h5>
+                        <div class="power-calculation">
+                            <div class="calc-row">
+                                <span>פאנלים סולאריים:</span>
+                                <span>100W × 5 שעות = 500Wh</span>
+                            </div>
+                            <div class="calc-row">
+                                <span>טורבינת רוח:</span>
+                                <span>30W × 6 שעות = 180Wh</span>
+                            </div>
+                            <div class="calc-row total">
+                                <span>סה"כ ייצור יומי:</span>
+                                <span>~680Wh</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add after the existing components section -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3>🛠️ רכיבים נדרשים מפורטים</h3>
+            <div class="detailed-components">
+                <div class="component-section">
+                    <h4 class="section-title">
+                        <span class="icon">☀️</span>
+                        פאנל סולארי גמיש
+                        <span class="subtitle">Flexible Solar Panel</span>
+                    </h4>
+                    <ul class="detailed-specs">
+                        <li>הספק כולל: 200W (2 יחידות של 100W)</li>
+                        <li>מתח עבודה: 18V</li>
+                        <li>מבנה גמיש להדבקה על חלון</li>
+                    </ul>
+                </div>
+
+                <div class="component-section">
+                    <h4 class="section-title">
+                        <span class="icon">🌬️</span>
+                        טורבינת רוח קטנה
+                        <span class="subtitle">Small Wind Turbine</span>
+                    </h4>
+                    <ul class="detailed-specs">
+                        <li>הספק: 100W</li>
+                        <li>מתח: 12V</li>
+                        <li>כולל בקר טעינה ייעודי לרוח</li>
+                    </ul>
+                </div>
+
+                <div class="component-section">
+                    <h4 class="section-title">
+                        <span class="icon">⚡</span>
+                        בקר טעינה היברידי
+                        <span class="subtitle">Hybrid MPPT Controller</span>
+                    </h4>
+                    <ul class="detailed-specs">
+                        <li>תומך בכניסות סולאריות ורוח</li>
+                        <li>מתח יציאה: 12V/24V</li>
+                        <li>מערכת MPPT לניצולת מקסימלית</li>
+                    </ul>
+                </div>
+
+                <div class="component-section">
+                    <h4 class="section-title">
+                        <span class="icon">🔋</span>
+                        סוללת ליתיום מותאמת אישית
+                        <span class="subtitle">Custom 18650 Battery Pack</span>
+                    </h4>
+                    <ul class="detailed-specs">
+                        <li>מתח: 12V</li>
+                        <li>קיבולת: 100Ah (~1,200 Wh)</li>
+                        <li>בנוי מתאי ליתיום 18650</li>
+                    </ul>
+                </div>
+
+                <div class="component-section">
+                    <h4 class="section-title">
+                        <span class="icon">🔌</span>
+                        ממיר מתח
+                        <span class="subtitle">DC-AC Inverter</span>
+                    </h4>
+                    <ul class="detailed-specs">
+                        <li>הספק: 300W למכשירי חשמל</li>
+                        <li>יציאות USB מובנות</li>
+                        <li>הגנות מובנות מקצר ועומס יתר</li>
+                    </ul>
+                </div>
+
+                <div class="component-section">
+                    <h4 class="section-title">
+                        <span class="icon">🧰</span>
+                        כבלים ומחברים
+                        <span class="subtitle">Wires & Connectors</span>
+                    </h4>
+                    <ul class="detailed-specs">
+                        <li>חוטי נחושת מבודדים</li>
+                        <li>מחברי XT60/Anderson</li>
+                        <li>כבלים בעובי מתאים לזרם</li>
+                    </ul>
+                </div>
+
+                <div class="component-section">
+                    <h4 class="section-title">
+                        <span class="icon">💡</span>
+                        בקרי מתח USB
+                        <span class="subtitle">DC-DC Converters</span>
+                    </h4>
+                    <ul class="detailed-specs">
+                        <li>יציאות 5V/9V לטעינה ישירה</li>
+                        <li>תמיכה בטעינה מהירה</li>
+                        <li>מערכת קירור מובנית</li>
+                    </ul>
+                </div>
+
+                <div class="component-section">
+                    <h4 class="section-title">
+                        <span class="icon">🪟</span>
+                        תושבת לחלון
+                        <span class="subtitle">Window Mounting Bracket</span>
+                    </h4>
+                    <ul class="detailed-specs">
+                        <li>חיבור קל ובטיחותי</li>
+                        <li>מתאים לפאנלים וטורבינה</li>
+                        <li>כולל אטמים למניעת רטיבות</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add after the detailed components section -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3>🔋 בניית סוללת ליתיום ושלבי התקנה</h3>
+
+            <!-- Battery Pack Section -->
+            <div class="battery-build-section">
+                <h4>בניית סוללת ליתיום מותאמת אישית</h4>
+                <div class="battery-calculations">
+                    <div class="calc-box">
+                        <h5>חישובי תאים:</h5>
+                        <ul class="calc-list">
+                            <li>קיבולת תא בודד: ~2,500 mAh (3.7V) ≈ 9.25 Wh</li>
+                            <li>קיבולת נדרשת: 1,200 Wh</li>
+                            <li>מספר תאים: 1,200Wh ÷ 9.25Wh ≈ 130 תאים</li>
+                        </ul>
+                    </div>
+
+                    <div class="battery-config">
+                        <h5>תצורת 3S40P:</h5>
+                        <div class="config-details">
+                            <div class="config-item">
+                                <span class="config-label">3S (Series):</span>
+                                <span class="config-value">3 תאים בטור = 12.6V</span>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-label">40P (Parallel):</span>
+                                <span class="config-value">40 קבוצות = 100Ah</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wiring Diagram -->
+            <div class="wiring-section">
+                <h4>סכמת חיבורים</h4>
+                <div class="wiring-diagram">
+                    <pre class="diagram-ascii">
+[ פאנל סולארי (200W) ]    [ טורבינת רוח (100W) ]
+         ↓                      ↓
+    [ בקר טעינה היברידי (MPPT) ]
+               ↓
+      [ סוללת ליתיום (3S40P) ]
+               ↓
+ ┌──────────────┬─────────────┬───────────────┐
+ │              │             │               │
+ [ ממיר AC 220V ]  [ יציאות USB ]   [ מנורות לד ישירות ל-DC ]
+                </pre>
+                </div>
+            </div>
+
+            <!-- Installation Steps -->
+            <div class="installation-steps">
+                <h4>שלבי התקנה</h4>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-header">
+                            <span class="step-number">1</span>
+                            <h5>התקנת הפאנלים והטורבינה</h5>
+                        </div>
+                        <ul class="step-list">
+                            <li>הצמדת הפאנלים על חלון עם מתלה ואקום</li>
+                            <li>חיבור הטורבינה למוט קטן במרפסת</li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-header">
+                            <span class="step-number">2</span>
+                            <h5>חיבור בקר הטעינה</h5>
+                        </div>
+                        <ul class="step-list">
+                            <li>חיבור הפאנלים והטורבינה לבקר MPPT</li>
+                            <li>וידוא התאמת מתח וזרם</li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-header">
+                            <span class="step-number">3</span>
+                            <h5>בניית סוללת ליתיום</h5>
+                        </div>
+                        <ul class="step-list">
+                            <li>סידור התאים בתצורת 3S40P</li>
+                            <li>ריתוך נקודתי עם רצועות ניקל</li>
+                            <li>התקנת לוח BMS</li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-header">
+                            <span class="step-number">4</span>
+                            <h5>חיבורים סופיים</h5>
+                        </div>
+                        <ul class="step-list">
+                            <li>חיבור ממיר DC-AC</li>
+                            <li>התקנת יציאות USB ו-DC</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maintenance Tips -->
+            <div class="maintenance-section">
+                <h4>טיפים לתחזוקה</h4>
+                <div class="maintenance-grid">
+                    <div class="maintenance-item">
+                        <span class="maintenance-icon">🧹</span>
+                        <p>ניקוי פאנלים חודשי</p>
+                    </div>
+                    <div class="maintenance-item">
+                        <span class="maintenance-icon">🔍</span>
+                        <p>בדיקת טורבינה תקופתית</p>
+                    </div>
+                    <div class="maintenance-item">
+                        <span class="maintenance-icon">🔋</span>
+                        <p>בדיקת סוללה כל 3 חודשים</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add after the advanced system section -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3>מידע נוסף על רכיבים</h3>
+            <ul>
+                <li><strong>פאנל סולארי:</strong> פאנלים סולאריים גמישים המותאמים להדבקה על חלונות.</li>
+                <li><strong>בקר טעינה MPPT:</strong> מאפשר ניהול טעינה יעיל עם תמיכה בטעינה היברידית.</li>
+                <li><strong>סוללת ליתיום:</strong> סוללה מותאמת אישית עם מערכת BMS לניהול בטוח.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Add after the costs tab content -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3>תעריפי חשמל בישראל</h3>
+
+            <div class="tariffs-container">
+                <!-- Tariff Comparison -->
+                <div class="tariff-comparison">
+                    <div class="tariff-card regular">
+                        <div class="tariff-header">
+                            <i class="fas fa-plug"></i>
+                            <h4>תעריף רגיל</h4>
+                        </div>
+                        <div class="tariff-price">₪0.48</div>
+                        <div class="price-unit">לקילוואט שעה</div>
+                        <div class="consumption-tiers">
+                            <div class="tier">
+                                <span>צריכה נמוכה (עד 400 קוט"ש)</span>
+                                <span>₪0.48</span>
+                            </div>
+                            <div class="tier">
+                                <span>צריכה גבוהה (מעל 400 קוט"ש)</span>
+                                <span>₪0.53</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tariff-card tou">
+                        <div class="tariff-header">
+                            <i class="fas fa-clock"></i>
+                            <h4>תעריף לפי שעות</h4>
+                        </div>
+                        <div class="time-based-rates">
+                            <div class="rate-item peak">
+                                <span class="time">שעות שיא (17:00-22:00)</span>
+                                <span class="price">₪0.58</span>
+                            </div>
+                            <div class="rate-item shoulder">
+                                <span class="time">שעות גבע (06:00-17:00)</span>
+                                <span class="price">₪0.45</span>
+                            </div>
+                            <div class="rate-item off-peak">
+                                <span class="time">שעות שפל (22:00-06:00)</span>
+                                <span class="price">₪0.32</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Savings Calculator -->
+                <div class="savings-calculator">
+                    <h4>מחשבון חיסכון</h4>
+                    <div class="calculator-form">
+                        <div class="form-group">
+                            <label>צריכה חודשית ממוצעת (קוט"ש):</label>
+                            <input type="number" id="monthlyUsage" value="500" min="0" step="50">
+                        </div>
+                        <div class="form-group">
+                            <label>אחוז שימוש בשעות שפל:</label>
+                            <input type="range" id="offPeakUsage" min="0" max="100" value="30">
+                            <span id="offPeakPercentage">30%</span>
+                        </div>
+                        <div class="savings-result">
+                            <div class="result-item">
+                                <span>עלות חודשית רגילה:</span>
+                                <span id="regularCost">₪240</span>
+                            </div>
+                            <div class="result-item">
+                                <span>עלות עם מערכת סולארית:</span>
+                                <span id="solarCost">₪80</span>
+                            </div>
+                            <div class="result-item highlight">
+                                <span>חיסכון חודשי:</span>
+                                <span id="monthlySavings">₪160</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

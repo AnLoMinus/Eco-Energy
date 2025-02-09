@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>השוואת טכנולוגיות אנרגיה ירוקה</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --bs-primary: #2ecc71;
+            --bs-danger: #e74c3c;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            padding-top: 2rem;
+        }
+
+        .card {
+            height: 100%;
+            border: none;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .card-header {
+            background-color: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 1.5rem;
+        }
+
+        .pros-cons {
+            padding: 1rem;
+        }
+
+        .pros {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            height: 100%;
+        }
+
+        .cons {
+            background-color: rgba(231, 76, 60, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            height: 100%;
+        }
+
+        .pros h5 {
+            color: var(--bs-primary);
+        }
+
+        .cons h5 {
+            color: var(--bs-danger);
+        }
+
+        .pros ul li::before {
+            content: "✓";
+            color: var(--bs-primary);
+            margin-left: 8px;
+        }
+
+        .cons ul li::before {
+            content: "✗";
+            color: var(--bs-danger);
+            margin-left: 8px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-details {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .type-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mb-5">השוואת טכנולוגיות אנרגיה ירוקה</h1>
+
+        <div class="row g-4">
+            <!-- אנרגיה סולארית -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">אנרגיה סולארית</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3 pros-cons">
+                            <div class="col-md-6">
+                                <div class="pros">
+                                    <h5>יתרונות</h5>
+                                    <ul>
+                                        <li>זמינות גבוהה בישראל</li>
+                                        <li>תחזוקה מינימלית</li>
+                                        <li>אורך חיים ארוך (20-25 שנה)</li>
+                                        <li>עלויות תפעול נמוכות</li>
+                                        <li>אפס פליטות בהפעלה</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="cons">
+                                    <h5>חסרונות</h5>
+                                    <ul>
+                                        <li>תלות במזג אוויר</li>
+                                        <li>עלות התקנה גבוהה</li>
+                                        <li>צורך בשטח גדול</li>
+                                        <li>יעילות מוגבלת (15-23%)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-details">
+                            <h4>סוגי מערכות</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="type-card">
+                                        <h5>פאנלים פוטו-וולטאיים</h5>
+                                        <ul>
+                                            <li>מונו-קריסטליים</li>
+                                            <li>פולי-קריסטליים</li>
+                                            <li>דק-שכבתיים</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="type-card">
+                                        <h5>מערכות תרמו-סולאריות</h5>
+                                        <ul>
+                                            <li>מגדל שמש מרכזי</li>
+                                            <li>שוקת פרבולית</li>
+                                            <li>צלחת פרבולית</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- אנרגיית רוח -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">אנרגיית רוח</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3 pros-cons">
+                            <div class="col-md-6">
+                                <div class="pros">
+                                    <h5>יתרונות</h5>
+                                    <ul>
+                                        <li>יעילות גבוהה (35-45%)</li>
+                                        <li>עלות תפעול נמוכה</li>
+                                        <li>פעילות 24/7</li>
+                                        <li>שימוש כפול בקרקע</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="cons">
+                                    <h5>חסרונות</h5>
+                                    <ul>
+                                        <li>תלות במיקום גיאוגרפי</li>
+                                        <li>רעש ופגיעה נופית</li>
+                                        <li>השפעה על בעלי כנף</li>
+                                        <li>תנודתיות בייצור</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-details">
+                            <h4>סוגי טורבינות</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="type-card">
+                                        <h5>טורבינות יבשתיות</h5>
+                                        <ul>
+                                            <li>טורבינות ציר אופקי</li>
+                                            <li>טורבינות ציר אנכי</li>
+                                            <li>מערכות מיקרו-רוח</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="type-card">
+                                        <h5>טורבינות ימיות</h5>
+                                        <ul>
+                                            <li>טורבינות קבועות</li>
+                                            <li>טורבינות צפות</li>
+                                            <li>מערכות רב-טורבינות</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- אנרגיה הידרו-אלקטרית -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">אנרגיה הידרו-אלקטרית</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3 pros-cons">
+                            <div class="col-md-6">
+                                <div class="pros">
+                                    <h5>יתרונות</h5>
+                                    <ul>
+                                        <li>יציבות באספקת חשמל</li>
+                                        <li>אורך חיים ארוך מאוד (50+ שנה)</li>
+                                        <li>יכולת ויסות עומסים</li>
+                                        <li>רב-תכליתיות (השקיה, שיט)</li>
+                                        <li>עלות ייצור נמוכה לקוט"ש</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="cons">
+                                    <h5>חסרונות</h5>
+                                    <ul>
+                                        <li>השפעה אקולוגית משמעותית</li>
+                                        <li>עלות הקמה גבוהה מאוד</li>
+                                        <li>תלות בתנאים טופוגרפיים</li>
+                                        <li>סיכוני בטיחות (שיטפונות)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-details">
+                            <h4>סוגי מערכות</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="type-card">
+                                        <h5>תחנות כוח גדולות</h5>
+                                        <ul>
+                                            <li>סכרים גדולים</li>
+                                            <li>תחנות אגירה שאובה</li>
+                                            <li>תחנות זרימה רציפה</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="type-card">
+                                        <h5>מערכות מיקרו-הידרו</h5>
+                                        <ul>
+                                            <li>מערכות לנחלים קטנים</li>
+                                            <li>ניצול מפלי מים תעשייתיים</li>
+                                            <li>מערכות השקיה חקלאיות</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ביומסה -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">ביומסה</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3 pros-cons">
+                            <div class="col-md-6">
+                                <div class="pros">
+                                    <h5>יתרונות</h5>
+                                    <ul>
+                                        <li>ניצול פסולת אורגנית</li>
+                                        <li>זמינות רציפה</li>
+                                        <li>יצירת מעגל סגור</li>
+                                        <li>תעסוקה מקומית</li>
+                                        <li>תוצרי לוואי שימושיים</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="cons">
+                                    <h5>חסרונות</h5>
+                                    <ul>
+                                        <li>פליטת מזהמים בשריפה</li>
+                                        <li>עלויות לוגיסטיות גבוהות</li>
+                                        <li>ריח ומטרדים סביבתיים</li>
+                                        <li>יעילות נמוכה יחסית</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-details">
+                            <h4>סוגי טכנולוגיות</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="type-card">
+                                        <h5>תהליכי המרה</h5>
+                                        <ul>
+                                            <li>ייצור ביוגז</li>
+                                            <li>הפקת ביודיזל</li>
+                                            <li>שריפה ישירה</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="type-card">
+                                        <h5>מקורות חומר גלם</h5>
+                                        <ul>
+                                            <li>פסולת חקלאית</li>
+                                            <li>פסולת עירונית אורגנית</li>
+                                            <li>גידולים אנרגטיים</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- אנרגיה מגנטית -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">אנרגיה מגנטית</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3 pros-cons">
+                            <div class="col-md-6">
+                                <div class="pros">
+                                    <h5>יתרונות</h5>
+                                    <ul>
+                                        <li>יעילות המרה גבוהה</li>
+                                        <li>פעולה שקטה</li>
+                                        <li>אמינות גבוהה</li>
+                                        <li>תחזוקה מינימלית</li>
+                                        <li>פליטות נמוכות</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="cons">
+                                    <h5>חסרונות</h5>
+                                    <ul>
+                                        <li>עלות גבוהה לטכנולוגיות מתקדמות</li>
+                                        <li>מורכבות טכנית</li>
+                                        <li>צורך בחומרים נדירים</li>
+                                        <li>השפעות שדות מגנטיים</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-details">
+                            <h4>סוגי מערכות</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="type-card">
+                                        <h5>טכנולוגיות בסיסיות</h5>
+                                        <ul>
+                                            <li>גנרטורים בעירור קבוע</li>
+                                            <li>מערכות מגנטים קבועים</li>
+                                            <li>מערכות היברידיות</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="type-card">
+                                        <h5>יישומים מתקדמים</h5>
+                                        <ul>
+                                            <li>אחסון מגנטי על-מוליך</li>
+                                            <li>מערכות לוויתן מגנטי</li>
+                                            <li>טכנולוגיות ננו-מגנטיות</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- נוסיף את הסקריפטים של בוטסטראפ בסוף הדף -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+    <!-- נוסיף סקריפט לאנימציות ופונקציונליות נוספת -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // אנימציית הופעה לכרטיסיות
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.3s ease-in-out';
+
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+
+            // הוספת אפקט hover לכרטיסיות
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+                });
+            });
+        });
+    </script>
+
+    <!-- נוסיף סגנונות נוספים -->
+    <style>
+        /* הוספת פונט Rubik מ-Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Rubik', sans-serif;
+        }
+
+        .card {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card-header {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--bs-primary), transparent);
+        }
+
+        .tech-details {
+            position: relative;
+        }
+
+        .tech-details::before {
+            content: '🔍';
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* שיפור נראות במובייל */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .card {
+                margin-bottom: 1rem;
+            }
+
+            .pros-cons {
+                padding: 0.5rem;
+            }
+
+            .tech-details {
+                padding: 1rem;
+            }
+        }
+
+        /* הוספת אנימציית טעינה */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.5s ease-out;
+        }
+    </style>
+</body>
+
+</html>
